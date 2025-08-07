@@ -16,12 +16,12 @@ function JobSearch() {
                                     Partner with Leidos
                                 </h2>
                                 <span className="wow animate__animated animate__fadeInLeft inline-block h-2 w-18 bg-red-800 content-none"></span>
-                                <p className="wow animate__animated animate__fadeInLeft text-lg text-gray-600 my-10"  data-wow-delay="0.3s">
+                                <p className="wow animate__animated animate__fadeInLeft text-lg text-gray-600 my-10" data-wow-delay="0.3s">
                                     As one of the leading systems integrators in science, technology, and engineering,
                                     the solutions that transform and enable the missions of our customers rely heavily
                                     on the strength of our partners.
                                 </p>
-                                <Link href={"/insights"} className="wow animate__animated animate__fadeInLeft inline-flex !mx-auto cursor-pointer capitalize bg-red-800 p-3 mt-0 text-sm md:text-base font-bold text-white rounded-lg px-5 border-none mb-10 hover:bg-red-900 hover:text-white items-center justify-center space-x-3"  data-wow-delay="0.6s">
+                                <Link href={"/insights"} className="wow animate__animated animate__fadeInLeft inline-flex !mx-auto cursor-pointer capitalize bg-red-800 p-3 mt-0 text-sm md:text-base font-bold text-white rounded-lg px-5 border-none mb-10 hover:bg-red-900 hover:text-white items-center justify-center space-x-3" data-wow-delay="0.6s">
                                     <span className='text-nowrap'>Learn about our solution</span> <FiArrowRight size={18} />
                                 </Link>
                             </div>
@@ -30,7 +30,17 @@ function JobSearch() {
                         {/* Job Search Card */}
                         <div className="relative flex items-center justify-center mt-10 transition-all duration-300">
                             <div className="h-[300px] lg:h-[400px] w-full bg-red-800 rotate-z-180" style={{ clipPath: 'polygon(100% 0%,100% 30%,0% 100%,0% 100%,0 0)' }}></div>
-                            <img src="/images/insights/insight1.jpg" className='wow animate__animated animate__fadeInRight absolute translate-y-1/2 left-1/2 bottom-1/2 -translate-x-1/2 w-10/12 aspect-auto' alt='logo' />
+
+                            {/* Using fill layout */}
+                            <div className="absolute translate-y-1/2 left-1/2 bottom-1/2 -translate-x-1/2 w-10/12 aspect-auto wow animate__animated animate__fadeInRight" style={{ height: '300px' }}>
+                                <Image
+                                    src="/images/insights/insight1.jpg"
+                                    alt="logo"
+                                    fill
+                                    className="object-contain"  // or object-cover depending on your needs
+                                    priority={true}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,21 +49,31 @@ function JobSearch() {
             <section>
                 <div className='max-w-6xl mx-auto rounded-xl mb-5 pt-0 p-10'>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                        {/* Partner with Leidos Card */}
-                        <div className="relative flex items-center justify-center transition-all duration-300">
-                            <div className="h-[300px] lg:h-[400px] w-full bg-red-800 rotate-z-0" style={{ clipPath: 'polygon(100% 0%,100% 30%,0% 100%,0% 100%,0 0)' }}></div>
-                            <img src="/images/insights/insight1.jpg" className='wow animate__animated animate__fadeInLeft absolute bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 w-10/12 aspect-auto' alt='logo' />
-                        </div>
+                       {/* Partner with Leidos Card */}
+<div className="relative flex items-center justify-center transition-all duration-300">
+  <div className="h-[300px] lg:h-[400px] w-full bg-red-800 rotate-z-0" style={{ clipPath: 'polygon(100% 0%,100% 30%,0% 100%,0% 100%,0 0)' }}></div>
+  
+  {/* Using fill layout - parent must have position and dimensions */}
+  <div className="wow animate__animated animate__fadeInLeft absolute bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 w-10/12 h-[300px] lg:h-[400px]">
+    <Image
+      src="/images/insights/insight1.jpg"
+      alt="Partner with Leidos"
+      fill
+      className="object-contain"  // or object-cover based on your needs
+      priority={true}
+    />
+  </div>
+</div>
 
                         {/* Job Search Card */}
                         <div className="overflow-hidden transition-all duration-300">
                             <div className="flex flex-col justify-center p-16 pb-0">
                                 <h2 className="wow animate__animated animate__fadeInRight text-3xl font-bold text-gray-900 mb-4">Job Search</h2>
-                                <p className="wow animate__animated animate__fadeInRight text-lg text-gray-600 mb-6"  data-wow-delay="0.3s">
+                                <p className="wow animate__animated animate__fadeInRight text-lg text-gray-600 mb-6" data-wow-delay="0.3s">
                                     Your most important challenge is ahead, take the next step in your career
                                     and explore the opportunities at Leidos.
                                 </p>
-                                <div  data-wow-delay="0.6s" className="wow animate__animated animate__fadeInRight flex flex-nowrap gap-4">
+                                <div data-wow-delay="0.6s" className="wow animate__animated animate__fadeInRight flex flex-nowrap gap-4">
                                     <input
                                         type="text"
                                         placeholder="Enter keyword, job ID, or title"

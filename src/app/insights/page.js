@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import React, { useState } from "react";
+import Image from "next/image";
 
 const filters = [{
     "market":
@@ -357,7 +358,7 @@ const blogPosts = [
 
     // Additional posts for other markets and filter categories...
     // (Continuing the pattern for all filter categories to ensure at least 6 posts per filter)
-    
+
     // Homeland Security Market (6 posts)
     {
         title: "White Paper",
@@ -382,7 +383,7 @@ const blogPosts = [
         peoplePartners: ""
     },
     // ... (additional posts following the same pattern)
-    
+
     // Intelligence Market (6 posts)
     {
         title: "Article",
@@ -396,7 +397,7 @@ const blogPosts = [
         peoplePartners: ""
     },
     // ... (additional posts following the same pattern)
-    
+
     // Science Market (6 posts)
     {
         title: "Article",
@@ -410,7 +411,7 @@ const blogPosts = [
         peoplePartners: ""
     },
     // ... (additional posts following the same pattern)
-    
+
     // Space Market (6 posts)
     {
         title: "Article",
@@ -527,8 +528,8 @@ export default function Insights() {
         });
 
         // Apply search query
-        const matchesSearch = searchQuery === "" || 
-            post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        const matchesSearch = searchQuery === "" ||
+            post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             post.description.toLowerCase().includes(searchQuery.toLowerCase());
 
         return matchesFilters && matchesSearch;
@@ -539,7 +540,7 @@ export default function Insights() {
 
 
     return (
-         <div className="max-w-6xl mx-auto px-4 py-10">
+        <div className="max-w-6xl mx-auto px-4 py-10">
             <div className="flex flex-col md:flex-row items-center justify-between mb-10">
                 {/* Header */}
                 <div className="text-center md:text-left mb-6 md:mb-0">
@@ -561,7 +562,7 @@ export default function Insights() {
                         onChange={handleSearchChange}
                         onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                     />
-                    <button 
+                    <button
                         onClick={handleSearch}
                         className="bg-red-800 hover:bg-red-900 text-white px-4 py-2.5 rounded-r flex items-center justify-center"
                     >
@@ -613,14 +614,21 @@ export default function Insights() {
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {postsToShow.map((post, i) => (
                             <div key={i} className="border rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
-                                <img src={post.image} alt={post.title} className="w-full h-56 object-cover" />
+                                <div className="relative h-46 w-full"> {/* Add w-full and h-56 */}
+                                    <Image
+                                        src={post.image}
+                                        alt={post.title}
+                                        layout="fill"
+                                        objectFit="cover" // This ensures proper image scaling
+                                    />
+                                </div>
                                 <div className="flex flex-col p-4">
                                     <h3 className="capitalize cursor-pointer hover:underline font-bold text-lg mt-2">{post.title}</h3>
                                     <p className="flex-1 text-base text-gray-500 mt-1 mb-4">
                                         {post.description.substring(0, 80)}...
                                     </p>
                                     <Link href={post.buttonLink} className="inline-flex items-center justify-start mt-auto border border-transparent text-base rounded-md text-red-800 transition-colors duration-200 whitespace-nowrap font-bold group">
-                                        {post.buttonText} 
+                                        {post.buttonText}
                                         <MdKeyboardArrowRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>
@@ -631,7 +639,7 @@ export default function Insights() {
             ) : (
                 <div className="text-center py-12">
                     <h3 className="text-xl font-medium text-gray-600">No posts found matching your criteria</h3>
-                    <button 
+                    <button
                         onClick={() => {
                             setSearchQuery("");
                             setActiveFilters({});
