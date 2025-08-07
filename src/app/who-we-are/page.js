@@ -184,7 +184,7 @@ function WhoWeAre() {
                         <strong className='font-bold'> 47,000 employees</strong> each and every
                         day they are helping our customers
                         execute on important missions on
-                        the front lines of the world's most
+                        the front lines of the world&apos;s most
                         complex markets.
                     </p>
                 </div>
