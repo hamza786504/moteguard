@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link'
 import React, { useState } from 'react'
+import Image from 'next/image';
 
 
 const values = [
@@ -148,11 +149,14 @@ function WhoWeAre() {
                                 className="animate__animated animate__fadeInUp wow bg-gradient-to-r from-red-800 to-red-900 text-center text-white rounded-md p-6 shadow-md transition hover:shadow-lg py-10"
                                 data-wow-delay={0.3 * idx + "s"}
                             >
-                                <img
-                                    src={value.icon}
-                                    alt={`${value.title} icon`}
-                                    className="mx-auto mb-4 h-20"
-                                />
+                                <div className="relative mx-auto mb-4 h-20 w-20"> {/* Container with defined dimensions */}
+                                    <Image
+                                        src={value.icon}
+                                        alt={`${value.title} icon`}
+                                        fill
+                                        className="object-contain" // Ensures icon fits within container
+                                    />
+                                </div>
                                 <h3 className="text-xl font-bold text-white mb-2">
                                     {value.title}
                                 </h3>
