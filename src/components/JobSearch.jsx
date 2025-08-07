@@ -7,11 +7,11 @@ function JobSearch() {
     return (
         <>
             <section>
-                <div className='max-w-6xl mx-auto rounded-xl mt-5 p-10 pb-0'>
+                <div className='max-w-6xl mx-auto rounded-xl mt-5 p-3 md:p-10 pb-0'>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                         {/* Partner with Leidos Card */}
                         <div className="overflow-hidden transition-all duration-300">
-                            <div className="p-8">
+                            <div className="p-4 md:p-8">
                                 <h2 className="wow animate__animated animate__fadeInLeft text-4xl font-extralight text-black mb-4">
                                     Partner with Leidos
                                 </h2>
@@ -28,7 +28,7 @@ function JobSearch() {
                         </div>
 
                         {/* Job Search Card */}
-                        <div className="relative flex items-center justify-center mt-10 transition-all duration-300">
+                        <div className="relative flex items-center justify-center mt-0 md:mt-10 transition-all duration-300">
                             <div className="h-[300px] lg:h-[400px] w-full bg-red-800 rotate-z-180" style={{ clipPath: 'polygon(100% 0%,100% 30%,0% 100%,0% 100%,0 0)' }}></div>
 
                             {/* Using fill layout */}
@@ -47,45 +47,57 @@ function JobSearch() {
             </section>
 
             <section>
-                <div className='max-w-6xl mx-auto rounded-xl mb-5 pt-0 p-10'>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                       {/* Partner with Leidos Card */}
-<div className="relative flex items-center justify-center transition-all duration-300">
-  <div className="h-[300px] lg:h-[400px] w-full bg-red-800 rotate-z-0" style={{ clipPath: 'polygon(100% 0%,100% 30%,0% 100%,0% 100%,0 0)' }}></div>
-  
-  {/* Using fill layout - parent must have position and dimensions */}
-  <div className="wow animate__animated animate__fadeInLeft absolute bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 w-10/12 h-[300px] lg:h-[400px]">
-    <Image
-      src="/images/insights/insight1.jpg"
-      alt="Partner with Leidos"
-      fill
-      className="object-contain"  // or object-cover based on your needs
-      priority={true}
-    />
-  </div>
-</div>
+                <div className='max-w-6xl mx-auto rounded-xl mb-5 pt-0 p-3 md:p-10'>
+                    <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-0">
+                        {/* Partner with Leidos Card */}
+                        <div className="relative flex items-center justify-center transition-all duration-300">
+                            <div
+                                className="h-[300px] lg:h-[400px] w-full bg-red-800 rotate-z-0"
+                                style={{ clipPath: 'polygon(100% 0%,100% 30%,0% 100%,0% 100%,0 0)' }}
+                            ></div>
+
+                            {/* Using fill layout - parent must have position and dimensions */}
+                            <div className="wow animate__animated animate__fadeInLeft absolute bottom-1/2 translate-y-1/2 left-1/2 -translate-x-1/2 w-10/12 h-[300px] lg:h-[400px]">
+                                <Image
+                                    src="/images/insights/insight1.jpg"
+                                    alt="Partner with Leidos"
+                                    fill
+                                    className="object-contain"
+                                    priority={true}
+                                />
+                            </div>
+                        </div>
 
                         {/* Job Search Card */}
                         <div className="overflow-hidden transition-all duration-300">
-                            <div className="flex flex-col justify-center p-16 pb-0">
-                                <h2 className="wow animate__animated animate__fadeInRight text-3xl font-bold text-gray-900 mb-4">Job Search</h2>
-                                <p className="wow animate__animated animate__fadeInRight text-lg text-gray-600 mb-6" data-wow-delay="0.3s">
-                                    Your most important challenge is ahead, take the next step in your career
-                                    and explore the opportunities at Leidos.
+                            <div className="flex flex-col justify-center px-0 pt-16 md:p-16 pb-0">
+                                <h2 className="wow animate__animated animate__fadeInRight text-3xl font-bold text-gray-900 mb-4">
+                                    Job Search
+                                </h2>
+                                <p
+                                    className="wow animate__animated animate__fadeInRight text-lg text-gray-600 mb-6"
+                                    data-wow-delay="0.3s"
+                                >
+                                    Your most important challenge is ahead, take the next step in your
+                                    career and explore the opportunities at Leidos.
                                 </p>
-                                <div data-wow-delay="0.6s" className="wow animate__animated animate__fadeInRight flex flex-nowrap gap-4">
+                                <div
+                                    data-wow-delay="0.6s"
+                                    className="wow animate__animated animate__fadeInRight flex flex-wrap md:flex-nowrap gap-4"
+                                >
                                     <input
                                         type="text"
                                         placeholder="Enter keyword, job ID, or title"
                                         className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:ring-2 h-12 focus:ring-red-700 focus:border-red-700 outline-none transition-all"
                                     />
-                                    <button className="mb-32 px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap">
+                                    <button className="w-full md:w-auto mb-32 px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap">
                                         Search jobs
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
         </>

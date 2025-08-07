@@ -131,7 +131,7 @@ export default function Header() {
 
     return (
         <header className="relative w-full bg-white shadow-md z-50 h-22">
-            <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-0 lg:px-0">
+            <div className="h-full max-w-6xl mx-auto flex justify-between items-center px-4 py-0 lg:px-0">
                 {/* Country */}
                 <div className="flex max-w-[130px] w-full items-center justify-start text-gray-600 text-sm font-medium">
                     {/* Hamburger Menu */}
@@ -145,7 +145,7 @@ export default function Header() {
                     <Image
                         src="/images/MoteguardLogo.png"
                         alt="logo"
-                        width={110} height={100}
+                        width={140} height={150}
                         className="object-cover rounded-t-lg"
                     />
                 </Link>
@@ -179,7 +179,7 @@ export default function Header() {
                                     {item.subMenu ? (
                                         <button
                                             onClick={() => handleMenuItemClick(index)}
-                                            className={`${item.subMenu !== null ? "font-bold text-2xl" : "text-lg"} text-start md:text-end hover:underline cursor-pointer text-white w-full`}
+                                            className={`${item.subMenu !== null ? "font-bold text-xl" : "text-base"} text-start md:text-end hover:underline cursor-pointer text-white w-full`}
                                             onMouseEnter={() => !isMobile && item.subMenu && setSubMenuIndex(index)}
                                         >
                                             {item.title}
@@ -217,7 +217,7 @@ export default function Header() {
                                         <li key={subIndex} className="p-1 px-2">
                                             <Link
                                                 href={subItem.slug}
-                                                className="cursor-pointer hover:underline"
+                                                className="cursor-pointer hover:underline text-lg" onClick={() => {setMenuOpen(false)}}
                                             >
                                                 {subItem.title}
                                             </Link>

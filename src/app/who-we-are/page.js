@@ -138,18 +138,35 @@ function WhoWeAre() {
     return (
         <>
 
-            <section className="w-full pb-16 px-6 md:px-10  text-white">
+
+            <section className="relative w-full bg-gradient-to-r from-red-600 to-red-900 overflow-hidden">
+                {/* Overlay with clip path for md and above */}
+                <div className="h-[200px] md:h-[300px] flex items-center relative md:inset-0 md:[clip-path:polygon(90%_0%,100%_60%,60%_100%,0%_100%,0_0)] md:bg-pink-500/20 md:pe-20 md:w-1/2 z-10 wow animate__animated animate__fadeInLeft">
+                    <div className="flex flex-col items-start max-w-xl mx-auto md:mx-0 md:ml-16 md:my-auto justify-center">
+                        <p className='text-white'>Home / Company</p>
+                        <h2 className="font-extrabold wow animate__animated animate__fadeInRight text-5xl md:text-6xl text-white leading-snug">
+                            Who We Are
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+            <section className="w-full py-16 px-2 md:px-10 text-white">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-light mb-10">Values</h2>
+                    <h2 className="text-3xl md:text-4xl font-light text-black text-center mb-10">Values</h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {values.map((value, idx) => (
                             <div
                                 key={idx}
-                                className="animate__animated animate__fadeInUp wow bg-gradient-to-r from-red-800 to-red-900 text-center text-white rounded-md p-6 shadow-md transition hover:shadow-lg py-10"
+                                className="animate__animated animate__fadeInUp wow bg-gradient-to-r border-red-300 border-2 text-center text-black rounded-md p-6 shadow-md transition hover:shadow-lg py-10"
                                 data-wow-delay={0.3 * idx + "s"}
                             >
-                                <div className="relative mx-auto mb-4 h-20 w-20"> {/* Container with defined dimensions */}
+                                <div className="relative mx-auto mb-4 h-23 w-23"> {/* Container with defined dimensions */}
                                     <Image
                                         src={value.icon}
                                         alt={`${value.title} icon`}
@@ -157,38 +174,16 @@ function WhoWeAre() {
                                         className="object-contain" // Ensures icon fits within container
                                     />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">
+                                <h3 className="text-xl font-bold text-red-900 mb-2">
                                     {value.title}
                                 </h3>
-                                <p className="text-sm text-white">{value.description}</p>
+                                <p className="text-sm text-red-900">{value.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="relative w-full bg-gradient-to-r from-red-600 to-red-900 py-16 px-6 md:px-10 overflow-hidden">
-                {/* Overlay with clip path for md and above */}
-                <div className="relative md:absolute md:inset-0 md:[clip-path:polygon(77%_0%,100%_60%,60%_100%,0%_100%,0_0)] md:bg-pink-500/20 pe-20 md:w-1/2 z-10 wow animate__animated animate__fadeInLeft">
-                    <div className="max-w-xl mx-auto md:mx-0 md:ml-16 md:my-auto h-full flex items-center justify-center">
-                        <h2 className="wow animate__animated animate__fadeInRight text-4xl md:text-5xl font-light text-white leading-snug">
-                            Our values are <br /> embodied by our <br /> employees
-                        </h2>
-                    </div>
-                </div>
-
-                {/* Right side content */}
-                <div className="p-6 md:p-20 relative z-20 md:ml-[50%] max-w-3xl mx-auto mt-10 md:mt-0">
-                    <p className="wow animate__animated animate__pulse text-lg md:text-xl text-white font-light leading-relaxed">
-                        Our values are demonstrated by our
-                        <strong className='font-bold'> 47,000 employees</strong> each and every
-                        day they are helping our customers
-                        execute on important missions on
-                        the front lines of the world&apos;s most
-                        complex markets.
-                    </p>
-                </div>
-            </section>
 
 
 
@@ -265,14 +260,14 @@ function WhoWeAre() {
                             </div>
                         </div>
 
-                        <div className="wow animate__animated animate__fadeInRight lg:mt-0 lg:w-2/3 lg:mx-6">
+                        <div className="wow animate__animated animate__fadeInRight lg:mt-0 lg:w-2/3 lg:mx-6 w-full">
                             <div
-                                className="w-full md:px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg   dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
+                                className="w-full md:px-8 pb-10 mx-auto overflow-hidden bg-white rounded-lg  dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
 
 
                                 <form className="mt-6" onSubmit={handleSubmit}>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <div className="flex-1">
+                                    <div className="flex flex-row flex-wrap">
+                                        <div className="w-full md:w-1/2 p-1">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Type of Request</label>
                                             <select
                                                 name="request_type"
@@ -290,7 +285,7 @@ function WhoWeAre() {
                                             </select>
                                             {errors.request_type && <p className="mt-1 text-sm text-red-600">{errors.request_type}</p>}
                                         </div>
-                                        <div className="flex-1">
+                                        <div className="w-full md:w-1/2 p-1">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
                                             <input
                                                 type="text"
@@ -303,7 +298,7 @@ function WhoWeAre() {
                                             {errors.first_name && <p className="mt-1 text-sm text-red-600">{errors.first_name}</p>}
                                         </div>
 
-                                        <div className="flex-1">
+                                        <div className="w-full md:w-1/2 p-1">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last Name</label>
                                             <input
                                                 type="text"
@@ -315,7 +310,7 @@ function WhoWeAre() {
                                             />
                                             {errors.last_name && <p className="mt-1 text-sm text-red-600">{errors.last_name}</p>}
                                         </div>
-                                        <div className="flex-1">
+                                        <div className="w-full md:w-1/2 p-1">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
                                             <input
                                                 type="email"
@@ -327,7 +322,7 @@ function WhoWeAre() {
                                             />
                                             {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                                         </div>
-                                        <div className="flex-1">
+                                        <div className="w-full md:w-1/2 p-1">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone No</label>
                                             <input
                                                 type="tel"
@@ -339,7 +334,7 @@ function WhoWeAre() {
                                             />
                                             {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
                                         </div>
-                                        <div className="flex-1">
+                                        <div className="w-full md:w-1/2 p-1">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Country/Region</label>
                                             <input
                                                 type="text"
@@ -351,7 +346,7 @@ function WhoWeAre() {
                                             />
                                             {errors.country && <p className="mt-1 text-sm text-red-600">{errors.country}</p>}
                                         </div>
-                                        <div className="col-span-2">
+                                        <div className="w-full">
                                             <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Contact Preference</label>
                                             <select
                                                 name="contact_preference"
@@ -366,32 +361,58 @@ function WhoWeAre() {
                                             </select>
                                             {errors.contact_preference && <p className="mt-1 text-sm text-red-600">{errors.contact_preference}</p>}
                                         </div>
+                                        <div className="w-full mt-6">
+                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Additional Information</label>
+                                            <textarea
+                                                name="additional_info"
+                                                value={formData.additional_info}
+                                                onChange={handleChange}
+                                                className="block w-full h-32 px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
+                                                placeholder="Enter Additional Information"
+                                            ></textarea>
+                                            {errors.additional_info && <p className="mt-1 text-sm text-red-600">{errors.additional_info}</p>}
+                                        </div>
+
+                                        <button
+                                            type="submit"
+                                            className="w-full px-6 py-3 mt-6 border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap"
+                                        >
+                                            Submit
+                                        </button>
                                     </div>
 
-                                    <div className="w-full mt-6">
-                                        <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Additional Information</label>
-                                        <textarea
-                                            name="additional_info"
-                                            value={formData.additional_info}
-                                            onChange={handleChange}
-                                            className="block w-full h-32 px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            placeholder="Enter Additional Information"
-                                        ></textarea>
-                                        {errors.additional_info && <p className="mt-1 text-sm text-red-600">{errors.additional_info}</p>}
-                                    </div>
 
-                                    <button
-                                        type="submit"
-                                        className="w-full px-6 py-3 mt-6 border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap"
-                                    >
-                                        Submit
-                                    </button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
+            <section className="relative w-full bg-gradient-to-r from-red-600 to-red-900 py-16 px-6 md:px-10 overflow-hidden">
+                {/* Overlay with clip path for md and above */}
+                <div className="relative md:absolute md:inset-0 md:[clip-path:polygon(77%_0%,100%_60%,60%_100%,0%_100%,0_0)] md:bg-pink-500/20 md:pe-20 md:w-1/2 z-10 wow animate__animated animate__fadeInLeft">
+                    <div className="w-full max-w-xl mx-auto md:mx-0 md:ml-16 md:my-auto h-full flex items-center justify-center">
+                        <h2 className="wow text-center mx-auto md:text-start animate__animated animate__fadeInRight text-4xl lg:text-5xl font-light text-white leading-snug">
+                            Our values are embodied by our employees
+                        </h2>
+                    </div>
+                </div>
+
+                {/* Right side content */}
+                <div className="p-6 md:p-20 relative z-20 md:ml-[50%] max-w-3xl mx-auto mt-10 md:mt-0">
+                    <p className="wow animate__animated animate__pulse text-lg md:text-xl text-white font-light leading-relaxed text-center md:text-start">
+                        Our values are demonstrated by our
+                        <strong className='font-bold'> 47,000 employees</strong> each and every
+                        day they are helping our customers
+                        execute on important missions on
+                        the front lines of the world&apos;s most
+                        complex markets.
+                    </p>
+                </div>
+            </section>
+
         </>
     )
 }

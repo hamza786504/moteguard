@@ -201,12 +201,12 @@ export default function Insights() {
   return (
     <section className="py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-xl md:text-3xl capitalize mb-8">Insights</h2>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 className="text-2xl md:text-3xl capitalize mb-8">Insights</h2>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {insights.slice(0, 4).map((insight, index) => (
             <div
               key={index}
-              className={`wow animate__animated animate__fadeInUp bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col`}
+              className={`wow animate__animated animate__fadeInUp bg-white shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col`}
               data-wow-delay={index * 0.4 + "s"}
             >
               <div className="relative w-full h-48">
@@ -214,7 +214,7 @@ export default function Insights() {
                   src={insight.image}
                   alt={insight.title}
                   fill
-                  className="object-cover rounded-t-lg"
+                  className="object-cover"
                 />
               </div>
               <div className="p-5 flex items-start flex-col flex-grow">
