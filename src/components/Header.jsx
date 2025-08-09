@@ -53,7 +53,6 @@ const menuData = [
         slug: "insights",
         subMenu: [
             { title: "Insights Overview", slug: "insights-overview" },
-            { title: "Latest Insights", slug: "latest-insights" }
         ]
     },
     {
@@ -177,13 +176,14 @@ export default function Header() {
                             {menuData.map((item, index) => (
                                 <li key={index} className="md:text-end relative p-2">
                                     {item.subMenu ? (
-                                        <button
-                                            onClick={() => handleMenuItemClick(index)}
+                                        <Link
+                                            href={`/${item.slug}`}
+                                            onClick={() => { handleMenuItemClick(index); setMenuOpen(false) }}
                                             className={`${item.subMenu !== null ? "font-bold text-xl" : "text-base"} text-start md:text-end hover:underline cursor-pointer text-white w-full`}
                                             onMouseEnter={() => !isMobile && item.subMenu && setSubMenuIndex(index)}
                                         >
                                             {item.title}
-                                        </button>
+                                        </Link>
                                     ) : (
                                         <Link
                                             href={`/${item.slug}`}
@@ -258,6 +258,6 @@ export default function Header() {
                     </button>
                 </div>
             </div>
-        </header>
+        </header >
     );
 }
