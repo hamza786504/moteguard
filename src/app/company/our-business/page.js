@@ -81,7 +81,7 @@ const features = [
 
 
 function OurBusiness() {
-    const [active, setActive] = useState("Defense Systems");
+    const [active, setActive] = useState("Health & Civil");
     const selected = filters.find((f) => f.name === active);
     return (
         <>
@@ -211,7 +211,7 @@ function OurBusiness() {
                         Lorem ipsum dolor sit
                     </h3>
                     <p className='text-black text-center my-4 text-base md:text-lg'>Lorem ipsum dolor, sit amet consectetur</p>
-                    <p className="text-black text-center text-sm font-extralight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
+                    <p className="text-black text-center text-xs md:text-sm font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
                     <div className="flex items-center justify-center space-x-1 sm:space-x-3 mt-7">
                         <button
                             className="px-3 md:px-6 py-2 border-2 border-red-900 font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap uppercase text-sm md:text-lg"
@@ -307,7 +307,7 @@ function OurBusiness() {
                         {/* Partner with Leidos Card */}
                         <div className="overflow-hidden transition-all duration-300">
                             <div className="p-4 md:p-8">
-                                <h2 className="wow animate__animated animate__fadeInLeft text-4xl font-extralight text-black mb-4">
+                                <h2 className="wow animate__animated animate__fadeInLeft text-4xl font-extrabold text-black mb-4">
                                     Partner with Leidos
                                 </h2>
                                 <span className="wow animate__animated animate__fadeInLeft inline-block h-2 w-18 bg-red-800 content-none"></span>
@@ -346,7 +346,7 @@ function OurBusiness() {
                     <div className="flex flex-wrap flex-col items-center md:flex-row gap-0">
                         <div className="w-full md:w-1/2 overflow-hidden transition-all duration-300">
                             <div className="p-0 py-5 md:p-8 md:pb-0">
-                                <h2 className="wow animate__animated animate__fadeInLeft text-4xl font-extralight text-black mb-4">
+                                <h2 className="wow animate__animated animate__fadeInLeft text-4xl font-extrabold text-black mb-4">
                                     Partner with Leidos
                                 </h2>
                                 <span className="wow animate__animated animate__fadeInLeft inline-block h-2 w-18 bg-red-800 content-none"></span>
@@ -438,7 +438,7 @@ function OurBusiness() {
                     <h3 className=" text-white text-start text-2xl md:text-5xl">
                         Lorem ipsum dolor sit
                     </h3>
-                    <p className="mt-7 md:max-w-8/12 text-white text-start text-sm md:text-base font-extralight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
+                    <p className="mt-7 md:max-w-8/12 text-white text-start text-sm md:text-base font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
                     <div className="flex items-center justify-start space-x-1 sm:space-x-3 mt-7">
                         <button
                             className="px-3 md:px-6 py-2 border-2 border-red-900 font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap uppercase text-sm md:text-lg"

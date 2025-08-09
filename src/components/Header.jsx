@@ -10,13 +10,13 @@ import { IoGlobeOutline } from "react-icons/io5";
 const menuData = [
     {
         title: "Company Overview",
-        slug: "company-overview",
+        slug: "company",
         subMenu: [
             { title: "Who We Are", slug: "who-we-are" },
             { title: "Our Business", slug: "our-business" },
             { title: "Leadership", slug: "leadership" },
-            { title: "Responsibility & Sustainability", slug: "responsibility-sustainability" },
-            { title: "Ethics & Business Integrity", slug: "ethics-business-integrity" },
+            { title: "Responsibility & Sustainability", slug: "responsibility-and-sustainability" },
+            { title: "Ethics & Business Integrity", slug: "ethics-and-business-integrity" },
             { title: "Partners", slug: "partners" },
             { title: "Contract Vehicles", slug: "contract-vehicles" },
             { title: "Global", slug: "global" },
@@ -186,7 +186,7 @@ export default function Header() {
                                         </button>
                                     ) : (
                                         <Link
-                                            href={item.slug}
+                                            href={`/${item.slug}`}
                                             className={`${item.subMenu !== null ? "font-bold text-2xl" : "text-lg"} hover:underline cursor-pointer text-white`}
                                         >
                                             {item.title}
@@ -216,11 +216,13 @@ export default function Header() {
                                     return (
                                         <li key={subIndex} className="p-1 px-2">
                                             <Link
-                                                href={subItem.slug}
-                                                className="cursor-pointer hover:underline text-lg" onClick={() => {setMenuOpen(false)}}
+                                                href={`/${menuData[subMenuIndex].slug}/${subItem.slug}`}
+                                                className="cursor-pointer hover:underline text-lg"
+                                                onClick={() => setMenuOpen(false)}
                                             >
                                                 {subItem.title}
                                             </Link>
+
                                         </li>
                                     )
                                 })}

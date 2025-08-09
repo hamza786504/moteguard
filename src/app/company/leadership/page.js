@@ -108,7 +108,7 @@ function Leadership() {
                     <h3 className=" text-white text-start text-2xl md:text-5xl">
                         Lorem ipsum dolor sit
                     </h3>
-                    <p className="mt-7 md:max-w-8/12 text-white text-start text-sm md:text-base font-extralight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
+                    <p className="mt-7 md:max-w-8/12 text-white text-start text-base md:text-base font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
                     <div className="flex items-center justify-start space-x-1 sm:space-x-3 mt-7">
                         <button
                             className="px-3 md:px-6 py-2 border-2 border-red-900 font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap uppercase text-sm md:text-lg"
