@@ -1,11 +1,49 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import CountUp from 'react-countup';
 import { FiArrowRight, FiUser } from 'react-icons/fi'
 import { BsArrowRight, BsAwardFill, BsBank2, BsBriefcaseFill, BsCreditCard2BackFill } from "react-icons/bs";
 
+
+const filters = [
+    {
+        name: "Health & Civil",
+        heading: "Health & Civil Solutions",
+        paragraph:
+            "We provide innovative healthcare and civil solutions, enhancing public well-being through technology and expert support.",
+        gradient: "from-pink-600 to-red-700",
+    },
+    {
+        name: "National Security",
+        heading: "National Security Solutions",
+        paragraph:
+            "Empowering national defense with cutting-edge intelligence, surveillance, and reconnaissance systems.",
+        gradient: "from-red-700 to-purple-800",
+    },
+    {
+        name: "Commercial & International",
+        heading: "Commercial & International Programs",
+        paragraph:
+            "Delivering commercial space, telecom, and defense innovations globally with high-impact collaborations.",
+        gradient: "from-purple-800 to-emerald-500",
+    },
+    {
+        name: "Digital Modernization",
+        heading: "Digital Modernization",
+        paragraph:
+            "Transforming legacy systems into smart digital ecosystems with AI, cloud, and cybersecurity.",
+        gradient: "from-emerald-500 to-sky-600",
+    },
+    {
+        name: "Defense Systems",
+        heading: "Defense Systems",
+        paragraph:
+            "The Defense Systems Sector develops and produces advanced space, aerial, surface, and sub-surface manned and un-manned defense systems.",
+        gradient: "from-sky-600 to-violet-800",
+    },
+];
 
 const stats = [
     { number: 250, suffix: 'K+', label: 'Secure Storage' },
@@ -43,13 +81,15 @@ const features = [
 
 
 function OurBusiness() {
+    const [active, setActive] = useState("Defense Systems");
+    const selected = filters.find((f) => f.name === active);
     return (
         <>
             <section className="relative w-full bg-gradient-to-r from-red-600 to-red-900 overflow-hidden">
                 {/* Overlay with clip path for md and above */}
                 <div className="h-[200px] md:h-[300px] flex items-center relative md:inset-0 md:[clip-path:polygon(90%_0%,100%_60%,60%_100%,0%_100%,0_0)] md:bg-pink-500/20 md:pe-20 md:w-1/2 z-10 wow animate__animated animate__fadeInLeft">
                     <div className="flex flex-col items-start max-w-xl mx-auto md:mx-0 md:ml-16 md:my-auto justify-center">
-                        <p className='text-white'>Home / Our Business</p>
+                        <p className='text-white'>Home / Company</p>
                         <h2 className="font-extrabold wow animate__animated animate__fadeInRight text-5xl md:text-6xl text-white leading-snug">
                             Our Business
                         </h2>
@@ -384,6 +424,83 @@ function OurBusiness() {
                     />
                 </div>
             </section>
+
+
+
+            <section
+                className="relative bg-center my-0 py-32 px-2 bg-cover"
+                style={{
+                    backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/section-bg.jpg')"
+                }}
+            >
+                {/* <div className='absolute inset-0 bg-black/20 h-full w-full'></div> */}
+                <div className="p-10 max-w-4xl rounded-xl text-start mx-auto px-4 md:px-5">
+                    <h3 className=" text-white text-start text-2xl md:text-5xl">
+                        Lorem ipsum dolor sit
+                    </h3>
+                    <p className="mt-7 md:max-w-8/12 text-white text-start text-sm md:text-base font-extralight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt saepe nam ratione rem non eligendi a in cupiditate, fugit suscipit?</p>
+                    <div className="flex items-center justify-start space-x-1 sm:space-x-3 mt-7">
+                        <button
+                            className="px-3 md:px-6 py-2 border-2 border-red-900 font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap uppercase text-sm md:text-lg"
+                        >
+                            contact us
+                        </button>
+                        <button className="animate__animated animate__fadeInRight animate__delay-2s cursor-pointer capitalize bg-white p-2 text-sm md:text-lg font-bold text-red-800 rounded-lg px-3 md:px-6 py-2 border-red-800 border-2 hover:bg-red-800 hover:text-white flex items-center justify-start space-x-3">
+                            <span className='text-nowrap uppercase'>Get A quote</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <div
+                className={`min-h-screen md:max-h-[500px] transition-all duration-700 bg-gradient-to-b ${selected.gradient} text-white flex items-center`}
+            >
+                <div className="max-w-6xl mx-auto px-4">
+                    {/* Filters */}
+                    <div className="flex flex-wrap gap-3 justify-start md:justify-center mb-16 md:mb-32">
+                        {filters.map((filter) => (
+                            <button
+                                key={filter.name}
+                                onClick={() => setActive(filter.name)}
+                                className={`text-base md:text-lg font-medium transition duration-300 relative group`}
+                            >
+                                <span
+                                    className={`${active === filter.name ? "underline" : "no-underline"
+                                        }`}
+                                >
+                                    {filter.name}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Content */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center animate-fadeIn">
+                        <div className="space-y-6">
+                            <h2 className="text-4xl font-bold animate-slideInLeft">
+                                {selected.heading}
+                            </h2>
+                            <p className="text-lg leading-relaxed animate-slideInLeft delay-100">
+                                {selected.paragraph}
+                            </p>
+                            <button className="bg-white text-black px-6 py-3 rounded-full inline-flex items-center gap-2 font-semibold animate-fadeInUp hover:scale-105 transition-transform">
+                                Learn More <FiArrowRight size={20} />
+                            </button>
+                        </div>
+                        <div className="flex justify-center md:justify-end animate-slideInRight">
+                            <Image
+                                src="/images/section-bg.jpg"
+                                alt="section-img"
+                                width={600}
+                                height={600}
+                                className="object-cover rounded-xl shadow-lg"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

@@ -393,7 +393,7 @@ function WhoWeAre() {
             <section className="relative w-full bg-gradient-to-r from-red-600 to-red-900 py-16 px-6 md:px-10 overflow-hidden">
                 {/* Overlay with clip path for md and above */}
                 <div className="relative md:absolute md:inset-0 md:[clip-path:polygon(77%_0%,100%_60%,60%_100%,0%_100%,0_0)] md:bg-pink-500/20 md:pe-20 md:w-1/2 z-10 wow animate__animated animate__fadeInLeft">
-                    <div className="w-full max-w-xl mx-auto md:mx-0 md:ml-16 md:my-auto h-full flex items-center justify-center">
+                    <div className="w-full max-w-xl mx-auto md:pe-16 md:mx-0 md:ml-16 md:my-auto h-full flex items-center justify-center">
                         <h2 className="wow text-center mx-auto md:text-start animate__animated animate__fadeInRight text-4xl lg:text-5xl font-light text-white leading-snug">
                             Our values are embodied by our employees
                         </h2>
