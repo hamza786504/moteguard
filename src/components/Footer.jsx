@@ -2,55 +2,58 @@ import Link from 'next/link';
 import React from 'react'
 
 const menuData = [
-  {
-    title: "Company Overview",
-    subMenu: [
-      "Who We Are",
-      "Our Business",
-      "Leadership",
-      "Responsibility & Sustainability",
-      "Ethics & Business Integrity",
-      "Partners",
-      "Contract Vehicles",
-      "Global",
-      "History"
-    ]
-  },
-  {
-    title: "Markets",
-    subMenu: [
-      "Markets Overview",
-      "Aviation",
-      "Defense",
-      "Energy & Industry",
-      "Government",
-      "Healthcare",
-      "Homeland Security",
-      "Intelligence",
-      "Science"
-    ]
-  },
-  {
-    title: "Capabilities",
-    subMenu: [
-      "Capabilities Overview",
-      "Trusted AI Mission",
-      "Integrated Systems",
-      "Mission Operation"
-    ]
-  },
-  {
-    title: "Careers",
-    subMenu: [
-      "Careers Overview",
-      "Latest Opportunities",
-      "Life at Moteguard",
-      "Pay & Benefits",
-      "Frequently Asked Questions",
-      "Careers in Australia",
-      "Careers in the UK"
-    ]
-  }
+    {
+        title: "Company Overview",
+        slug: "company",
+        subMenu: [
+            { title: "Who We Are", slug: "company/who-we-are" },
+            { title: "Our Business", slug: "company/our-business" },
+            { title: "Leadership", slug: "company/leadership" },
+            { title: "Responsibility & Sustainability", slug: "company/responsibility-and-sustainability" },
+            { title: "Ethics & Business Integrity", slug: "company/ethics-and-business-integrity" },
+            { title: "Partners", slug: "company/partners" },
+            { title: "Contract Vehicles", slug: "company/contract-vehicles" },
+            { title: "Global", slug: "company/global" },
+            { title: "History", slug: "company/history" }
+        ]
+    },
+    {
+        title: "Markets",
+        slug: "markets",
+        subMenu: [
+            { title: "Aviation", slug: "markets/aviation" },
+            { title: "Defense", slug: "markets/defense" },
+            { title: "Energy & Industry", slug: "markets/energy" },
+            { title: "Government", slug: "markets/government" },
+            { title: "Healthcare", slug: "markets/healthcare" },
+            { title: "Homeland Security", slug: "markets/homeland-security" },
+            { title: "Intelligence", slug: "markets/intelligence" },
+            { title: "Science", slug: "markets/science" }
+        ]
+    },
+    {
+        title: "Capabilities",
+        slug: "capabilities",
+        subMenu: [
+            { title: "Capabilities Overview", slug: "capabilities/capabilities-overview" },
+            { title: "Trusted AI Mission", slug: "capabilities/trusted-ai-mission" },
+            { title: "Integrated Systems", slug: "capabilities/integrated-systems" },
+            { title: "Mission Operation", slug: "capabilities/mission-operation" }
+        ]
+    },
+    {
+        title: "Careers",
+        slug: "careers",
+        subMenu: [
+            { title: "Careers Overview", slug: "careers/careers-overview" },
+            { title: "Latest Opportunities", slug: "careers/latest-opportunities" },
+            { title: "Life at Moteguard", slug: "careers/life-at-moteguard" },
+            { title: "Pay & Benefits", slug: "careers/pay-benefits" },
+            { title: "Frequently Asked Questions", slug: "careers/faq" },
+            { title: "Careers in Australia", slug: "careers/careers-australia" },
+            { title: "Careers in the UK", slug: "careers/careers-uk" }
+        ]
+    }
 ];
 
 
@@ -72,11 +75,14 @@ function Footer() {
                 >
                   <h5 className='capitalize mb-4 text-white text-xl font-bold'>{data.title}</h5>
                   <ul className='space-y-1'>
-                    {data.subMenu.map((menu, id) => (
-                      <li key={id} className='text-lg cursor-pointer font-normal hover:underline text-white capitalize'>
-                        <Link href={menu.toLocaleLowerCase().trim()} className='text-sm'>{menu}</Link>
-                      </li>
-                    ))}
+                    {data.subMenu?.map((menu, id) => (
+  <li key={id} className='text-lg cursor-pointer font-normal hover:underline text-white capitalize'>
+    <Link href={`/${menu.slug.toLowerCase().trim()}`} className='text-sm'>
+      {menu.title}
+    </Link>
+  </li>
+))}
+
                   </ul>
                 </div>
               );

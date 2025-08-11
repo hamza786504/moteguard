@@ -27,10 +27,9 @@ const menuData = [
         title: "Markets",
         slug: "markets",
         subMenu: [
-            { title: "Markets Overview", slug: "markets-overview" },
             { title: "Aviation", slug: "aviation" },
             { title: "Defense", slug: "defense" },
-            { title: "Energy & Industry", slug: "energy-industry" },
+            { title: "Energy & Industry", slug: "energy" },
             { title: "Government", slug: "government" },
             { title: "Healthcare", slug: "healthcare" },
             { title: "Homeland Security", slug: "homeland-security" },
@@ -74,6 +73,11 @@ const menuData = [
         subMenu: null
     },
     {
+        title: "Newsroom",
+        slug: "newsroom",
+        subMenu: null
+    },
+    {
         title: "Employees",
         slug: "employees",
         subMenu: null
@@ -84,8 +88,13 @@ const menuData = [
         subMenu: null
     },
     {
-        title: "Contact Us",
-        slug: "contact-us",
+        title: "Global",
+        slug: "company/global",
+        subMenu: null
+    },
+    {
+        title: "Contact",
+        slug: "contact",
         subMenu: null
     }
 ];
