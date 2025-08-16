@@ -1,3 +1,4 @@
+import TextOverColor from '@/components/TextOverColor';
 import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
@@ -215,33 +216,13 @@ function NewsRoom() {
 
 
 
-      <section className="relative my-16 py-16 md:py-32 bg-gradient-to-r from-red-800 to-red-400 overflow-hidden">
-        {/* Top-right background image */}
-        <div
-          className="absolute top-0 right-0 bg-no-repeat bg-left bg-cover h-96 w-[600px] z-0"
-          style={{ backgroundImage: "url(/images/polygon-10percent.svg)" }}
-        ></div>
 
 
-        {/* Main Content */}
-        <div className="relative z-10 max-w-3xl mx-auto px-4">
-          <h2 className="wow animate__animated animate__fadeInUp text-white text-2xl mb-10 leading-normal md:text-5xl">
-            Media Contact
-          </h2>
-          <p className='!z-10 mb-3 text-white font-normal md:text-lg text-base wow animate__animated animate__fadeInUp' data-wow-delay="0.2s">
-            All media inquiries should be directed to:
-          </p>
-          <p className='!z-10 text-white md:text-lg text-base wow animate__animated animate__fadeInUp font-bold' data-wow-delay="0.4s">
-            Leidos Media Relations
-          </p>
-          <Link href={"/"} className='!z-10 text-white md:text-lg text-base wow animate__animated animate__fadeInUp font-bold underline' data-wow-delay="0.4s">
-            MediaRelations@leidos.com
-          </Link>
-          <p className='!z-10 my-3 text-white font-normal md:text-lg text-base wow animate__animated animate__fadeInUp italic' data-wow-delay="0.6s">
-            This mailbox is typically monitored between 7 a.m. and 7 p.m. U.S. Eastern time Monday through Friday. If you're a journalist with an urgent matter outside those hours, please text Todd Blecher, Leidos Senior Director of Media Relations, at 571-926-3822.
-          </p>
-        </div>
-      </section>
+      <TextOverColor
+        heading="Media Contact"
+        paragraph="Discover how the Leidos team helped the Transportation Security Administration secure the 104th Rose Bowl game with walk-through metal detectors deployment, screening 93,000 in attendance."
+        btns={[{ href: "mailto:mediaRelations@leidos.com", text: "MediaRelations@leidos.com" }]}
+      />
 
 
 

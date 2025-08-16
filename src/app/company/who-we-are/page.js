@@ -183,6 +183,7 @@ function WhoWeAre() {
                     </div>
                 </div>
             </section>
+            
 
 
 
@@ -417,4 +418,4 @@ function WhoWeAre() {
     )
 }
 
-export default WhoWeAre
+export default WhoWeAre;

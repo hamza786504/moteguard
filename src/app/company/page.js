@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image';
+import ContactForm from '@/components/ContactForm';
 
 
 const values = [
@@ -44,96 +45,7 @@ const values = [
 ];
 
 function Company() {
-    const [formData, setFormData] = useState({
-        request_type: '',
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone: '',
-        country: '',
-        contact_preference: '',
-        additional_info: ''
-    });
 
-    const [errors, setErrors] = useState({
-        request_type: '',
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone: '',
-        country: '',
-        contact_preference: '',
-        additional_info: ''
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-        // Clear error when user starts typing
-        if (errors[name]) {
-            setErrors({
-                ...errors,
-                [name]: ''
-            });
-        }
-    };
-
-    const validateForm = () => {
-        let valid = true;
-        const newErrors = { ...errors };
-
-        if (!formData.request_type) {
-            newErrors.request_type = 'Request type is required';
-            valid = false;
-        }
-        if (!formData.first_name) {
-            newErrors.first_name = 'First name is required';
-            valid = false;
-        }
-        if (!formData.last_name) {
-            newErrors.last_name = 'Last name is required';
-            valid = false;
-        }
-        if (!formData.email) {
-            newErrors.email = 'Email is required';
-            valid = false;
-        } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-            newErrors.email = 'Email is invalid';
-            valid = false;
-        }
-        if (!formData.phone) {
-            newErrors.phone = 'Phone is required';
-            valid = false;
-        }
-        if (!formData.country) {
-            newErrors.country = 'Country is required';
-            valid = false;
-        }
-        if (!formData.contact_preference) {
-            newErrors.contact_preference = 'Contact preference is required';
-            valid = false;
-        }
-        if (!formData.additional_info) {
-            newErrors.additional_info = 'Additional information is required';
-            valid = false;
-        }
-
-        setErrors(newErrors);
-        return valid;
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (validateForm()) {
-            // Form is valid, proceed with submission
-            console.log('Form submitted:', formData);
-            // Here you would typically send the data to your backend
-            // axios.post('/api/contact', formData)...
-        }
-    };
 
     return (
         <>
@@ -259,131 +171,7 @@ function Company() {
                             </div>
                         </div>
 
-                        <div className="wow animate__animated animate__fadeInRight lg:mt-0 lg:w-2/3 lg:mx-6 w-full">
-                            <div
-                                className="w-full md:px-8 pb-10 mx-auto overflow-hidden bg-white rounded-lg  dark:bg-gray-900 lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
-
-
-                                <form className="mt-6" onSubmit={handleSubmit}>
-                                    <div className="flex flex-row flex-wrap">
-                                        <div className="w-full md:w-1/2 p-1">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Type of Request</label>
-                                            <select
-                                                name="request_type"
-                                                value={formData.request_type}
-                                                onChange={handleChange}
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            >
-                                                <option value="">Select Request Type</option>
-                                                <option value="Accommodation">Accommodation Request</option>
-                                                <option value="Business">Business Inquiry</option>
-                                                <option value="Career">Career Question</option>
-                                                <option value="Employee">Contact an Employee</option>
-                                                <option value="Product">Product Information</option>
-                                                <option value="Submission">Submit an RAP, RFI or RFQ</option>
-                                            </select>
-                                            {errors.request_type && <p className="mt-1 text-sm text-red-600">{errors.request_type}</p>}
-                                        </div>
-                                        <div className="w-full md:w-1/2 p-1">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
-                                            <input
-                                                type="text"
-                                                name="first_name"
-                                                value={formData.first_name}
-                                                onChange={handleChange}
-                                                placeholder="First Name"
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            />
-                                            {errors.first_name && <p className="mt-1 text-sm text-red-600">{errors.first_name}</p>}
-                                        </div>
-
-                                        <div className="w-full md:w-1/2 p-1">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last Name</label>
-                                            <input
-                                                type="text"
-                                                name="last_name"
-                                                value={formData.last_name}
-                                                onChange={handleChange}
-                                                placeholder="Last Name"
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            />
-                                            {errors.last_name && <p className="mt-1 text-sm text-red-600">{errors.last_name}</p>}
-                                        </div>
-                                        <div className="w-full md:w-1/2 p-1">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                placeholder="johndoe@example.com"
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            />
-                                            {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
-                                        </div>
-                                        <div className="w-full md:w-1/2 p-1">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone No</label>
-                                            <input
-                                                type="tel"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                placeholder="+123456789"
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            />
-                                            {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
-                                        </div>
-                                        <div className="w-full md:w-1/2 p-1">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Country/Region</label>
-                                            <input
-                                                type="text"
-                                                name="country"
-                                                value={formData.country}
-                                                onChange={handleChange}
-                                                placeholder="Country/Region"
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            />
-                                            {errors.country && <p className="mt-1 text-sm text-red-600">{errors.country}</p>}
-                                        </div>
-                                        <div className="w-full">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Contact Preference</label>
-                                            <select
-                                                name="contact_preference"
-                                                value={formData.contact_preference}
-                                                onChange={handleChange}
-                                                className="block w-full px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                            >
-                                                <option value="">Select Contact Preference</option>
-                                                <option value="Email Only">Email Only</option>
-                                                <option value="Phone Only">Phone Only</option>
-                                                <option value="Email and Phone">Email and Phone</option>
-                                            </select>
-                                            {errors.contact_preference && <p className="mt-1 text-sm text-red-600">{errors.contact_preference}</p>}
-                                        </div>
-                                        <div className="w-full mt-6">
-                                            <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Additional Information</label>
-                                            <textarea
-                                                name="additional_info"
-                                                value={formData.additional_info}
-                                                onChange={handleChange}
-                                                className="block w-full h-32 px-2 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-800 dark:focus:border-red-800 focus:ring-red-800 focus:outline-none focus:ring focus:ring-opacity-40"
-                                                placeholder="Enter Additional Information"
-                                            ></textarea>
-                                            {errors.additional_info && <p className="mt-1 text-sm text-red-600">{errors.additional_info}</p>}
-                                        </div>
-
-                                        <button
-                                            type="submit"
-                                            className="w-full px-6 py-3 mt-6 border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-red-900 transition-colors duration-200 whitespace-nowrap"
-                                        >
-                                            Submit
-                                        </button>
-                                    </div>
-
-
-                                </form>
-                            </div>
-                        </div>
+                        <ContactForm />
                     </div>
                 </div>
             </section>

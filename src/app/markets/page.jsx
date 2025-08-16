@@ -59,7 +59,7 @@ function Markets() {
             </section>
 
 
-            <section className="animate__animated animate__fadeInLeft wow py-16 mx-auto max-w-xl" data-wow-delay="0s">
+            <section className="px-3 animate__animated animate__fadeInLeft wow py-16 mx-auto max-w-xl" data-wow-delay="0s">
                 <h2 className="text-red-800 font-bold leading-tight text-4xl md:text-5xl text-start">
                     Important work on the front lines of the world's most challenging markets
                 </h2>

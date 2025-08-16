@@ -31,20 +31,24 @@ const menuData = [
             { title: "Defense", slug: "defense" },
             { title: "Energy & Industry", slug: "energy" },
             { title: "Government", slug: "government" },
-            { title: "Healthcare", slug: "healthcare" },
-            { title: "Homeland Security", slug: "homeland-security" },
+            { title: "Healthcare", slug: "health" },
+            { title: "Homeland Security", slug: "homeland" },
             { title: "Intelligence", slug: "intelligence" },
-            { title: "Science", slug: "science" }
+            { title: "Science", slug: "science" },
+            { title: "Space", slug: "space" }
         ]
     },
     {
         title: "Capabilities",
         slug: "capabilities",
         subMenu: [
-            { title: "Capabilities Overview", slug: "capabilities-overview" },
-            { title: "Trusted AI Mission", slug: "trusted-ai-mission" },
+            { title: "Trusted Mission AI", slug: "../ai" },
+            { title: "CyberSecurity", slug: "cyber" },
+            { title: "Digital Modernization", slug: "digital-modernization" },
             { title: "Integrated Systems", slug: "integrated-systems" },
-            { title: "Mission Operation", slug: "mission-operation" }
+            { title: "Mission Operations", slug: "mission-operations" },
+            { title: "Mission Software System", slug: "mission-software-systems" },
+            { title: "Rapid Prototyping Manufacturing", slug: "rapid-prototyping-manufacturing" },
         ]
     },
     {
@@ -58,9 +62,8 @@ const menuData = [
         title: "Careers",
         slug: "careers",
         subMenu: [
-            { title: "Careers Overview", slug: "careers-overview" },
-            { title: "Latest Opportunities", slug: "latest-opportunities" },
-            { title: "Life at Moteguard", slug: "life-at-moteguard" },
+            { title: "Latest Opportunities", slug: "/" },
+            { title: "Life at Leidos", slug: "life" },
             { title: "Pay & Benefits", slug: "pay-benefits" },
             { title: "Frequently Asked Questions", slug: "faq" },
             { title: "Careers in Australia", slug: "careers-australia" },
